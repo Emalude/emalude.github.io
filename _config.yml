@@ -40,7 +40,7 @@ plugins:
   
 author:
   name     : "Emanuele Sicurella"
-  avatar   : "/assets/images/bio-photo.jpg"
+  avatar   : "/assets/images/bio-photo.png"
   bio      : "Final year PhD Student in Psychology (Computational Neuroscience) with a backgroun din Applied Physics. Keen on advancing AI research inspired by human capabilities in decision making and planning."
   location : "Cardiff, UK"
   links:
