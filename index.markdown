@@ -5,4 +5,4 @@
 layout: home
 ---
 
-#Emanuele Sicurella
+# Emanuele Sicurella
