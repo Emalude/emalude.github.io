@@ -37,7 +37,25 @@ plugins:
   - jekyll-feed
   - jekyll-remote-theme
   - jekyll-include-cache
-
+  
+author:
+  name     : "Emanuele Sicurella"
+  avatar   : "/assets/images/bio-photo.jpg"
+  bio      : "Final year PhD Student in Psychology (Computational Neuroscience) with a backgroun din Applied Physics. Keen on advancing AI research inspired by human capabilities in decision making and planning."
+  location : "Cardiff, UK"
+  links:
+    - label: "Emanuele Sicurella"
+      icon: "fas fa-fw fa-link"
+      url: "https://www.emanuelesicurella.com"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/emanuelesicur"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/Emalude"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://linkedin.com/in/emanuelesicurella"
 locale: "en-GB"
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
