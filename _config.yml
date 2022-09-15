@@ -41,12 +41,15 @@ plugins:
 author:
   name     : "Emanuele Sicurella"
   avatar   : "/assets/images/bio-photo.png"
-  bio      : "Final year PhD Student in Psychology (Computational Neuroscience) with a backgroun din Applied Physics. Keen on advancing AI research inspired by human capabilities in decision making and planning."
+  bio      : "Final year PhD Student in Psychology (Computational Neuroscience) with a background in Applied Physics. Keen on advancing AI research inspired by human capabilities in decision making and planning."
   location : "Cardiff, UK"
   links:
     - label: "Emanuele Sicurella"
       icon: "fas fa-fw fa-link"
       url: "https://www.emanuelesicurella.com"
+    - label: "CV"
+      icon: "fas fa-fw fa-file"
+      url: "https://github.com/Emalude/emalude.github.io/tree/main/assets/file/ES_CV.pdf"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/emanuelesicur"
