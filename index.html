@@ -3,28 +3,34 @@ layout: home
 author_profile: true
 ---
 
-Do you like my logo at the top left of the page? No? Neither do I. That's why you shouldn't use DALL-E for logo generation.
+Do you like my logo at the top left of the page? No? Neither do I. That's why you shouldn't use <a href="https://openai.com/dall-e-2/">DALL-E 2</a> for logo generation.
 
 <h2>My Research</h2>
-<p>Hi! My name is Emanuele Sicurella and I'm a final year PhD Student in Psychology, with a background in Physics, in the Cognition and Computation brain lab at Cardiff University Brain Research Imaging Centre (CUBRIC, best acronym ever).
+<p>Hi! My name is Emanuele Sicurella and I'm a final year PhD Student in Psychology, with a background in Physics, in the <a href="https://ccbrain.org/">Cognition and Computational Brain Lab</a> at Cardiff University Brain Research Imaging Centre (CUBRIC, best acronym ever).
    In my PhD I decided to cover a breadth of topics to learn the most about the several aspects of Deep Learning and how it can be used as a model of cognition. Here is a list of the projecs I completed or I'm working on.</p>
 
 <h3>Graphlets analysis of human brain's structural and functional connectomes</h3>
-<p>The human brain can be modeled as a Graph, a connection of nodes connected by links following a certain pattern. Graphlets are small, connected, induced subgraphs. Different nodes in a graphlet can have different topological properties identified as orbits.
-   The distribution of orbits and their correlation can reveal interesting topological features of a Graph. I computed the orbit distributions for structural (DWI) and two functional (MEG and fMRI) connectomes. </p>
+<p>The human brain can be modeled as a <b>graph</b>, a collection of <b>nodes</b> connected by <b>links</b> following a certain pattern. Following my <a href="https://aaltodoc.aalto.fi/handle/123456789/33788">MSc thesis</a> research work on network neuroscience, I found a new interesting approach for studying graphs. <b>Graphlets</b> are small, connected, induced subgraphs. Different nodes in a graphlet can have different topological properties and they are called <b>orbits</b>.
+   The distribution of orbits and their <b>correlation</b> can reveal interesting topological features of a Graph. I computed the orbit distributions for structural (DWI) and functional (MEG and fMRI) connectomes. Orbits can be roughly divided into two groups: central, if the node is found at the centre of the graphlet, or peripheral.
+   A node in a Graph can appear several times as central, peripheral orbits or both. To better understand the role and usefulness of this measure, I computed the partial correlation between the central and peripheral orbits count and some classical graph theory measures, like the degree, clustering coefficient or centrality.
+   It appears that hubs (nodes connected to many others) in the brain can have a high central orbit count (provincial hubs) as well as peripheral (connector hubs). Indeed, peripheral hubs correlated positively with participation coefficient (especially for structural connectomes) while central hubs correlated with within-module z-score.
+   Although the results were interesting, the graphlet approach didn't bring any novelty for my project (though they offered an efficient way to summarise the topological property of the connectomes). I then decided to move to more deep learning-focused projects.
+ </p>
 
 <h3>Deep Learning for Parameter Recovery from a Neural Mass Model of Perceptual Decision Making</h3>
 <p>In neuroscience, parameter recovery refers to the problem of finding the best parameters of a model for fitting the experimental data. The developing of more biologically plausible computational models of cognition has offered a significant improvement in the predictive power at the cost of a higher complexity posing increasing challenges on parameter recovery. Here, we present a deep learning approach to recover parameters of a two-variables neural mass model simulating evidence accumulation during perceptual decision-making. We show that our algorithm is able to recovery well specific set of parameters but might fail when trying to predict combinations of parameters with a high degree of interaction, i.e. parameters that have inherently similar effects on the model’s output. Thus, our study suggests that deep learning for parameter recovery should go together with a carefully designed experiment to study the effects of different parameters that are not richly interacting.</p>
 
 <ul>
-  <li>CCN2022 paper</li>
-  <li>GitHub repository</li>
+  <li><a href="10.32470/CCN.2022.1095-0">CCN 2022 poster</a></li>
+  <li><a href="https://github.com/Emalude/wwparrecdl">GitHub repository</a></li>
 </ul>
 
 <h3>CNN and RNN Ensemble for Random Dot Motion Discrimination Task (ongoing)</h3>
-<p></p>
+<p>Following my work on parameter recovery of the Wang-Wong model for the random dot motion task, I was curious to see if I could replicate the results of the model using Deep Learning. I started with an input modeled as a gaussian noise with average equal to the motion coherence of the dots. A single unit RNN was sufficient to solve the left/right discrimination task with similar accuracy as humans.
+   I noticed that in fact, the RNN was not needed as similar results can be obtained by a simple cumulative sum (evidence accumulation). I then generated a video of the random dot motion discrimination task using PsychoPy, and passing each frame to a 1 filter CNN, concatenate the output and passing the generated sequence to a 10 hidden units RNN.
+   Once trained, this simple ensemble is able to solve the task with performance similar to humans'. I'm currently experimenting on the CNN output, analizyng the CNN filter and trying to reduce the output (e.g., with pooling) to see if the output sequence is similar to a random gaussian noise with non-zero mean. After that, I plan to study the RNN weights and outputs to see if it performs some sort of evidence accumulation as the human brain does.</p>
 <ul>
-  <li>Code (Google Colab Notebook)</li>
+  <li><a href="https://colab.research.google.com/drive/1_Q84FnNr9cSt_dSlhAvEXz1QPzefhHEi?usp=sharing">Code (Google Colab Notebook)</a></li>
 </ul>
 
 <h3>Neural Decoding of a Monkey's Arm Movements on Computed Neurons' Connectivity using Graph Neural Networks (ongoing)</h3>
@@ -37,11 +43,15 @@ Do you like my logo at the top left of the page? No? Neither do I. That's why yo
    I'm currently trying to use Graph Neural Network (GNN) on inferred connectivity among neurons using cross-correlation to see if I can improve the decoding performance and/or efficiency. </p>
 
 <ul>
-  <li>Code (Google Colab Notebook)</li>
+  <li><a href="https://colab.research.google.com/drive/11f95Lq-92uWmut8mxnrPNLf01y-RPcmk?usp=sharing">Code (Google Colab Notebook)</a></li>
 </ul>
 
 <h3>Comparison of humans, model-free and model-based Reinforcement Learning Agents at Playing Pac-Man (designing/looking for collaborations)</h3>
-<p></p>
+<p>During my PhD I haven't had the chance to study Reinforcement Learning. Now, my lab mate is about to start collecting behavioral data together with fMRI scanning of people playing Pac-Man. I couldn't resist the urge to get involved so I started designing a project using these data.
+   I'm particularly interested in comparing human strategies with Reinforcement Learning agents to learn more about planning. Strategies have been studied on non human primate and a model of weighted strategies with a softmax policy to select the action was able to reproduce the monkey behaviour with high accuracy.
+   It would be interesting to study the difference between humans, model-free and model-based RL agents in term of strategies and planning and see if I could use this knowledge to improve the performance of RL agents over the state-of-the-art. Thanks to the very kind availability of two Senior Research Scientists from DeepMind, I have collected precious feedback and created a detailed research plan.
+   I'm currently looking for a Research Assistant/Internship position for a couple of months to develop this project and submit it to a top-tier AI conference (ICLR, NeurIPS, ICML). Please feel free to contact me if you are interested or know someone who might be!
+</p>
 
 <h2>Other Projects</h2>
 
