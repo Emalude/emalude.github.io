@@ -2,3 +2,45 @@
 layout: home
 author_profile: true
 ---
+
+Do you like my logo at the top left of the page? No? Neither do I. That's why you shouldn't use DALL-E for logo generation.
+
+<h2>My Research</h2>
+<p>Hi! My name is Emanuele Sicurella and I'm a final year PhD Student in Psychology, with a background in Physics, in the Cognition and Computation brain lab at Cardiff University Brain Research Imaging Centre (CUBRIC, best acronym ever).
+   In my PhD I decided to cover a breadth of topics to learn the most about the several aspects of Deep Learning and how it can be used as a model of cognition. Here is a list of the projecs I completed or I'm working on.</p>
+
+<h3>Graphlets analysis of human brain's structural and functional connectomes</h3>
+<p>The human brain can be modeled as a Graph, a connection of nodes connected by links following a certain pattern. Graphlets are small, connected, induced subgraphs. Different nodes in a graphlet can have different topological properties identified as orbits.
+   The distribution of orbits and their correlation can reveal interesting topological features of a Graph. I computed the orbit distributions for structural (DWI) and two functional (MEG and fMRI) connectomes. </p>
+
+<h3>Deep Learning for Parameter Recovery from a Neural Mass Model of Perceptual Decision Making</h3>
+<p>In neuroscience, parameter recovery refers to the problem of finding the best parameters of a model for fitting the experimental data. The developing of more biologically plausible computational models of cognition has offered a significant improvement in the predictive power at the cost of a higher complexity posing increasing challenges on parameter recovery. Here, we present a deep learning approach to recover parameters of a two-variables neural mass model simulating evidence accumulation during perceptual decision-making. We show that our algorithm is able to recovery well specific set of parameters but might fail when trying to predict combinations of parameters with a high degree of interaction, i.e. parameters that have inherently similar effects on the model’s output. Thus, our study suggests that deep learning for parameter recovery should go together with a carefully designed experiment to study the effects of different parameters that are not richly interacting.</p>
+
+<ul>
+  <li>CCN2022 paper</li>
+  <li>GitHub repository</li>
+</ul>
+
+<h3>CNN and RNN Ensemble for Random Dot Motion Discrimination Task (ongoing)</h3>
+<p></p>
+<ul>
+  <li>Code (Google Colab Notebook)</li>
+</ul>
+
+<h3>Neural Decoding of a Monkey's Arm Movements on Computed Neurons' Connectivity using Graph Neural Networks (ongoing)</h3>
+<p>Effectively translating neural activity into behavioral output is an open problem in neuroscience with potential application in BCI and neuroprosthetics. During Neuromatch Academy - Deep Learning, me and my team have been working on decoding the neural activity
+   of a mouse turning a wheel left or right based on a visual contrast task. We tried a mix of techniques with RNNs having the best cost-effectiveness ratio. Inspired by the positive results, I decide to apply a similar framework on a 2D motor task performed by two Monkeys.
+   The first monkey performed the task three times, with about 50 neurons from the premotor cortex (PMd). The second monkey performed a single task with both motor (M1) and premotor areas (PMd) while recording 67 and 94 neurons respectively.
+   The dataset includes position, speed, acceleration and force of the arm as behavioral output.
+   I preprocessed the data using Prof. Kording Lab's toolkit for neural decoding and reimplemented the model with the best cost-effectiveness ration (again, RNN) using PyTorch.
+   The results show the best decoding performance for speed. Interestingly, higher number of neurons didn't bring higher decoding performance, probably because it has been observed that motor and premotor areas are not only involved in direct motor control, but also backward task like motor learning.
+   I'm currently trying to use Graph Neural Network (GNN) on inferred connectivity among neurons using cross-correlation to see if I can improve the decoding performance and/or efficiency. </p>
+
+<ul>
+  <li>Code (Google Colab Notebook)</li>
+</ul>
+
+<h3>Comparison of humans, model-free and model-based Reinforcement Learning Agents at Playing Pac-Man (designing/looking for collaborations)</h3>
+<p></p>
+
+<h2>Other Projects</h2>
