@@ -6,8 +6,8 @@ toc_label: "Navigate Projects"
 toc_icon: "cog"
 ---
 
-Do you like my logo at the top left of the page? No? Neither do I. That's why you shouldn't use <a href="https://openai.com/dall-e-2/">DALL-E 2</a> for logo generation.
-
+<i>Do you like my logo at the top left of the page? No? Neither do I. That's why you shouldn't use <a href="https://openai.com/dall-e-2/">DALL-E 2</a> for logo generation.</i>
+<br>
 <h1>What I'm Working On</h1>
 <p>Hi! My name is Emanuele Sicurella and I'm a final year PhD Student in Psychology, with a background in Physics, in the <a href="https://ccbrain.org/">Cognition and Computational Brain Lab</a> at Cardiff University Brain Research Imaging Centre (CUBRIC, best acronym ever).
    In my PhD I decided to cover a breadth of topics to learn the most about the several aspects of Deep Learning and how it can be used as a model of cognition. Here is a list of the projecs I completed or I'm working on.</p>
@@ -40,13 +40,13 @@ Do you like my logo at the top left of the page? No? Neither do I. That's why yo
 </ul>
 
 <h3>Neural Decoding of a Monkey's Arm Movements on Computed Neurons' Connectivity using Graph Neural Networks (ongoing)</h3>
-<p>Effectively translating neural activity into behavioral output is an open problem in neuroscience with potential application in BCI and neuroprosthetics. During Neuromatch Academy - Deep Learning, me and my team have been working on decoding the neural activity
-   of a mouse turning a wheel left or right based on a visual contrast task. We tried a mix of techniques with RNNs having the best cost-effectiveness ratio. Inspired by the positive results, I decide to apply a similar framework on a 2D motor task performed by two Monkeys.
-   The first monkey performed the task three times, with about 50 neurons from the premotor cortex (PMd). The second monkey performed a single task with both motor (M1) and premotor areas (PMd) while recording 67 and 94 neurons respectively.
+<p>Effectively <b>translating neural activity into behavioral output</b> is an open problem in neuroscience with potential application in <i>BCI</i> and <i>neuroprosthetics</i>. During <a href='https://academy.neuromatch.io/'>Neuromatch Academy - Deep Learning</a>, me and my team have been working on decoding the neural activity
+   of a mouse turning a wheel left or right based on a visual contrast task. We tried a mix of techniques with <b>RNN</b> having the best cost-effectiveness ratio. Inspired by the positive results, I decide to apply a similar framework on a <b>2D motor task performed by two Monkeys</b>.
+   The first monkey performed the task three times, with about 50 neurons from the <b>premotor cortex (PMd)</b>. The second monkey performed a single task with both <b>motor (M1)</b> and premotor areas while recording 67 and 94 neurons respectively.
    The dataset includes position, speed, acceleration and force of the arm as behavioral output.
-   I preprocessed the data using Prof. Kording Lab's toolkit for neural decoding and reimplemented the model with the best cost-effectiveness ration (again, RNN) using PyTorch.
+   I preprocessed the data using <a href='https://github.com/KordingLab/Neural_Decoding'>Prof. Körding Lab's toolkit for neural decoding</a> and reimplemented the model with the best cost-effectiveness ratio (again, RNN) using <b>PyTorch</b>.
    The results show the best decoding performance for speed. Interestingly, higher number of neurons didn't bring higher decoding performance, probably because it has been observed that motor and premotor areas are not only involved in direct motor control, but also backward task like motor learning.
-   I'm currently trying to use Graph Neural Network (GNN) on inferred connectivity among neurons using cross-correlation to see if I can improve the decoding performance and/or efficiency. </p>
+   I'm currently trying to use <b>Graph Neural Network (GNN)</b> on inferred connectivity among neurons using cross-correlation to see if I can improve the decoding performance and/or efficiency. </p>
 
 <ul>
   <li><a href="https://colab.research.google.com/drive/11f95Lq-92uWmut8mxnrPNLf01y-RPcmk?usp=sharing">Code (Google Colab Notebook)</a></li>
