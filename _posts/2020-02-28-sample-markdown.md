@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Sample blog post to learn markdown tips
-subtitle: There's lots to learn!
-gh-repo: daattali/beautiful-jekyll
+title: Designing a Mini-Protein Binder Against SARS-CoV-2 RBD with Generative AI
+subtitle: Using RFDiffusion and proteinMPNN
+gh-repo: emalude/sars-cov2-binder-design
 gh-badge: [star, fork, follow]
-tags: [test]
+tags: [Project, GenAI]
 comments: true
 mathjax: true
-author: Bill Smith
+author: Emanuele Sicurella
 ---
 
 {: .box-success}
