@@ -9,26 +9,23 @@ comments: true
 mathjax: true
 author: Emanuele Sicurella
 ---
-The rapid rise of protein language models and generative AI has opened the door to a bold new frontier in synthetic biology: designing novel proteins from scratch using only computational tools. Among the most compelling applications is the creation of mini-protein binders—small, stable proteins that can latch onto a biological target with high specificity, offering potential as therapeutics, diagnostics, or research tools.
+The rapid rise of protein language models and generative AI has opened the door to a bold new frontier in synthetic biology: **designing novel proteins from scratch using only computational tools**. Among the most compelling applications is the creation of **mini-protein binders**: small, stable proteins that can latch onto a biological target with high specificity, offering potential as therapeutics, diagnostics, or research tools.
 
-In this project, I set out to design a de novo mini-protein binder for the SARS-CoV-2 spike receptor-binding domain (RBD)—the same region that allows the virus to enter human cells by interacting with the ACE2 receptor. This interface has been extensively studied and serves as a well-defined benchmark for computational protein design.
+In this project, I set out to design a **de novo mini-protein binder for the SARS-CoV-2 spike receptor-binding domain (RBD)**, the same region that allows the virus to enter human cells by interacting with the ACE2 receptor. This interface has been extensively studied and serves as a well-defined benchmark for computational protein design.
 
-But rather than relying on known binders or sequence motifs, my goal was more ambitious: to build a binder from scratch, using an end-to-end generative pipeline made entirely of open-source tools. The project draws inspiration from cutting-edge techniques like diffusion-based structure generation, sequence design with deep learning, and structure prediction via AlphaFold2, all culminating in in silico docking and structural validation.
+But rather than relying on known binders or sequence motifs, my goal was more ambitious: to build a binder from scratch, using an end-to-end generative pipeline made entirely of open-source tools. The project draws inspiration from cutting-edge techniques like **diffusion-based structure generation, sequence design with deep learning, and structure prediction via AlphaFold2**, all culminating in in silico docking and structural validation.
 
 Here’s the core pipeline I implemented:
 
-Backbone generation using RFdiffusion
-, a generative model for protein structures.
+1. **Backbone generation** using RFdiffusion, a generative model for protein structures.
 
-Sequence design for the generated backbones using ProteinMPNN
-, a deep learning model that maps structures to likely sequences.
+1. **Sequence design** for the generated backbones using ProteinMPNN, a deep learning model that maps structures to likely sequences.
 
-Folding prediction with AlphaFold2 via ColabFold
- to ensure structural viability and stability of the designed proteins.
+1. **Folding prediction with AlphaFold2 via ColabFold** to ensure structural viability and stability of the designed proteins.
 
-Docking to the SARS-CoV-2 spike RBD using tools like HADDOCK or ZDOCK, to assess binding potential at the ACE2 interface.
+1. **Docking** to the SARS-CoV-2 spike RBD using tools like HADDOCK or ZDOCK, to assess binding potential at the ACE2 interface.
 
-The final result is a collection of entirely novel mini-proteins—short sequences that are predicted to fold into compact, stable structures and potentially bind to the viral RBD. This project demonstrates not only the power of modern AI tools in synthetic biology, but also how individuals outside of traditional wet labs can now explore therapeutic design using open data and open models.
+The final result is a collection of entirely novel mini-proteins, *i.e.*, short sequences that are predicted to fold into compact, stable structures and potentially bind to the viral RBD. This project demonstrates not only the power of modern AI tools in synthetic biology, but also how individuals outside of traditional wet labs can now explore therapeutic design using open data and open models.
 
 In the rest of this post, I’ll walk you through each step in the pipeline, share design choices and results, and reflect on the challenges and opportunities in this emerging space.
 
