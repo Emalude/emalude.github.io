@@ -53,7 +53,10 @@ From this study, I selected six ACE2 hotspot residues that contribute strongly t
 
 These residues sit at the heart of the ACE2–RBD interface, forming a dense network of hydrogen bonds and van der Waals contacts with the spike protein. In RFdiffusion, I treated them as target-side hotspots: positions on the RBD surface where the model is encouraged to place complementary binder residues.
 
-### RFdiffusion setup
+![ACE2 Spike protein RBD interface](https://beautifuljekyll.com/assets/img/Figure1.jpg)
+*Figure 1: ACE2 receptor - Spike Protein RBD interaction interface with highlighted hotspots selected for RFDiffusion design.*
+
+### RFdiffusion setup
 
 Conceptually, the RFdiffusion setup looked like this:
 
@@ -73,21 +76,17 @@ I ran 10 independent RFdiffusion trajectories, each allowed to generate a candid
 
 The 10 trajectories naturally fell into two qualitative categories:
 
-- Single-chain designs with a dangling tail
+**Single-chain designs with a dangling tail**
 
-    - In most runs, RFdiffusion produced a single, relatively long chain that contained a compact interface region plus an extended segment sticking out into solvent.
+  In most runs, RFdiffusion produced a single, relatively long chain that contained a compact interface region plus an extended segment sticking out into solvent. That extra segment was clearly non-interacting: no meaningful contacts with the RBD, just a flexible-looking tail. While these are technically valid structures, they are not ideal as mini-protein binders: they’re larger than necessary and potentially less stable and harder to express.
 
-    - That extra segment was clearly non-interacting: no meaningful contacts with the RBD, just a flexible-looking tail.
+**Compact two-helix designs at the interface**
 
-    - While these are technically valid structures, they are not ideal as mini-protein binders: they’re larger than necessary and potentially less stable and harder to express.
+In three runs (design 1, 4, and 7), RFdiffusion generated short, compact backbones made of two α-helices arranged against the RBD surface. These helices qualitatively resemble the ACE2 helical segment that engages the spike protein, but are not copies—they’re de novo scaffolds that happen to occupy a similar part of structural space. Importantly, in these designs the helices sit directly over the ACE2–RBD interface, making close approach to the hotspot residues defined above.
 
-- Compact two-helix designs at the interface
+![Single chain design](https://beautifuljekyll.com/assets/img/Figure2.jpg)
+*Figure 2: Several designs were a single relatively long alpha helix. Most of the protein sticking out into solvent, not interacting with the spike protein*
 
-    - In three runs (which I label design 1, 4, and 7), RFdiffusion generated short, compact backbones made of two α-helices arranged against the RBD surface.
-
-    - These helices qualitatively resemble the ACE2 helical segment that engages the spike protein, but are not copies—they’re de novo scaffolds that happen to occupy a similar part of structural space.
-
-    - Importantly, in these designs the helices sit directly over the ACE2–RBD interface, making close approach to the hotspot residues defined above.
 
 ### Selecting the top backbones
 
@@ -99,13 +98,7 @@ For a first pass, I used simple, qualitative criteria to select promising candid
 
 - **Hotspot engagement (visual)**: the generated helices should appear to make contacts across the hotspot region, rather than drifting to some unrelated patch of the surface.
 
-Based on these criteria, I discarded the “single long chain with a dangling tail” designs and kept designs 1, 4, and 7 as the top three backbones for further work. These three candidates provided the right balance of:
-
-small size (mini-protein-like),
-
-clear interface geometry, and
-
-ACE2-like orientation at the RBD surface.
+Based on these criteria, I discarded the “single long chain with a dangling tail” designs and kept designs 1, 4, and 7 as the top three backbones for further work. These three candidates provided the right balance of: small size (mini-protein-like), clear interface geometry, and ACE2-like orientation at the RBD surface.
 
 In the next step, I took these three backbones into ProteinMPNN to design amino acid sequences that could plausibly fold into these shapes while maintaining their interface contacts to the spike RBD.
 
