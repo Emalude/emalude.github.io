@@ -53,7 +53,7 @@ From this study, I selected six ACE2 hotspot residues that contribute strongly t
 
 These residues sit at the heart of the ACE2–RBD interface, forming a dense network of hydrogen bonds and van der Waals contacts with the spike protein. In RFdiffusion, I treated them as target-side hotspots: positions on the RBD surface where the model is encouraged to place complementary binder residues.
 
-![ACE2 Spike protein RBD interface](https://emalude.github.io/assets/img/Figure1.png)
+![ACE2 Spike protein RBD interface]({{ '/assets/img/Figure1.png' | relative_url}})
 *Figure 1: ACE2 receptor - Spike Protein RBD interaction interface with highlighted hotspots selected for RFDiffusion design.*
 
 ### RFdiffusion setup
@@ -84,7 +84,7 @@ The 10 trajectories naturally fell into two qualitative categories:
 
 In three runs (design 1, 4, and 7), RFdiffusion generated short, compact backbones made of two α-helices arranged against the RBD surface. These helices qualitatively resemble the ACE2 helical segment that engages the spike protein, but are not copies—they’re de novo scaffolds that happen to occupy a similar part of structural space. Importantly, in these designs the helices sit directly over the ACE2–RBD interface, making close approach to the hotspot residues defined above.
 
-![Single chain design](https://emalude.github.io/assets/img/Figure2.png)
+![Single chain design]({{ '/assets/img/Figure2.png' | relative_url }})
 *Figure 2: Several designs were a single relatively long alpha helix. Most of the protein sticking out into solvent, not interacting with the spike protein*
 
 
@@ -174,6 +174,8 @@ In the first example, the predicted structure overlays cleanly with the original
 
 - The RMSD is below 0.9 Å, with only minor local displacements.
 
+The aligned structures can be explored in the 3D image below:
+
 <iframe
   src="{{ '/assets/viewers/aligned_structures.html' | relative_url }}"
   width="100%"
@@ -194,7 +196,9 @@ In the second example, the contrast is stark. Although the protein still forms s
 - The helices are displaced away from the ACE2-like interface.
 
 - The binder is clearly incompatible with productive binding to the RBD.
-- 
+  
+Again, the structures can be explored in the 3D image below:
+
 <iframe
   src="{{ '/assets/viewers/aligned_structures_bad.html' | relative_url }}"
   width="100%"
@@ -216,96 +220,84 @@ This step turned out to be a critical filter in the pipeline: before worrying ab
 
 In the next section, I’ll build on this validation step and show how these filtered designs were taken forward for docking and interface assessment against the SARS-CoV-2 spike RBD.
 
+## 4. Docking to the SARS-CoV-2 RBD: validating binding geometry
 
+After validating that the designed sequences could reliably fold back into their intended two-helix backbones using Boltz2, the final step was protein–protein docking. This ordering is intentional and important.
 
+### Why docking after folding validation
 
+Docking only makes sense once you’ve established that:
 
+- The designed sequence can actually realize the intended backbone, and
 
-{: .box-success}
-This is a demo post to show you how to write blog posts with markdown.  I strongly encourage you to [take 5 minutes to learn how to write in markdown](https://markdowntutorial.com/) - it'll teach you how to transform regular text into bold/italics/tables/etc.<br/>I also encourage you to look at the [code that created this post](https://raw.githubusercontent.com/daattali/beautiful-jekyll/master/_posts/2020-02-28-sample-markdown.md) to learn some more advanced tips about using markdown in Beautiful Jekyll.
+- The resulting structure is stable and well-defined.
 
-**Here is some bold text**
+Without this step, docking scores and poses can be misleading: a poorly folded or misfolded binder may still produce apparently reasonable docking solutions simply because the docking algorithm compensates by rotating or deforming the complex. By validating folding first, docking becomes a test of binding compatibility, not a rescue attempt for bad structures.
 
-## Here is a secondary heading
+In other words, the question at this stage is no longer “can this sequence fold?”, but rather: “Given that it folds correctly, does it bind the right place in the right way?”
 
-[This is a link to a different site](https://deanattali.com/) and [this is a link to a section inside this page](#local-urls).
+### Docking setup and rationale
 
-Here's a table:
+I used LightDock, treating the spike RBD as the receptor and the designed mini-protein as the ligand. Docking was performed under the following guiding principles:
 
-| Number | Next number | Previous number |
-| :------ |:--- | :--- |
-| Five | Six | Four |
-| Ten | Eleven | Nine |
-| Seven | Eight | Six |
-| Two | Three | One |
+- Local docking at the ACE2 interface. Active residue restraints were applied on the RBD to focus sampling on the ACE2 binding patch, reflecting the original design hypothesis.
 
-You can use [MathJax](https://www.mathjax.org/) to write LaTeX expressions. For example:
-When \\(a \ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\) and they are $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+- Rigid-backbone docking. Backbone flexibility was disabled for both proteins. This was a deliberate choice: only designs that bind correctly without backbone distortion were considered viable. This makes docking a stricter and more informative filter.
 
-How about a yummy crepe?
+- Minimal bias on the ligand. Ligand restraints were either omitted or limited, allowing the binder to explore orientations freely while still targeting the correct region of the RBD.
 
-![Crepe](https://beautifuljekyll.com/assets/img/crepe.jpg)
+LightDock performed hundreds of independent local docking searches (“swarms”) around the receptor surface, each converging to a best-scoring pose. The top-ranked poses across all swarms were then collected and analyzed.
 
-It can also be centered!
+### Interpreting the docking results
 
-![Crepe](https://beautifuljekyll.com/assets/img/crepe.jpg){: .mx-auto.d-block :}
+After energy minimization, the top five docking solutions showed strong overall agreement:
 
-Here's a code chunk:
+- Four models aligned closely, differing only by minor displacements consistent with small rigid-body adjustments.
 
-~~~
-var foo = function(x) {
-  return(x + 5);
-}
-foo(3)
-~~~
+- One model showed a larger displacement, but still remained clearly anchored to the correct ACE2 interface region.
 
-And here is the same code with syntax highlighting:
+![Top 5 docking results]({{ '/assets/img/Figure3.png' | relative_url }})
+*Figure 3: Top 5 docking results (after energy-minimization). One of the 5 configurations shows a mini-protein significantly shifted, but still in the correct binding-region.*
 
-```javascript
-var foo = function(x) {
-  return(x + 5);
-}
-foo(3)
-```
+Crucially, there was no evidence of alternative binding sites dominating the top rankings. Instead, the best-scoring poses consistently converged to the same region of the RBD, with similar orientations of the mini-protein relative to the interface.
 
-And here is the same code yet again but with line numbers:
+This kind of convergence is far more meaningful than any single score. It suggests that the designed binder is not just compatible with the ACE2 interface in one lucky pose, but that multiple independent docking searches recover the same binding geometry.
 
-{% highlight javascript linenos %}
-var foo = function(x) {
-  return(x + 5);
-}
-foo(3)
-{% endhighlight %}
+### What docking does (and does not) prove
 
-## Boxes
-You can add notification, warning and error boxes like this:
+It’s important to be clear about the scope of these results.
 
-### Notification
+Docking here does not prove:
 
-{: .box-note}
-**Note:** This is a notification box.
+- Binding affinity
 
-### Warning
+- Kinetics
 
-{: .box-warning}
-**Warning:** This is a warning box.
+- Experimental viability
 
-### Error
+What it does show is that:
 
-{: .box-error}
-**Error:** This is an error box.
+- The designed mini-protein can fold as intended
 
-## Local URLs in project sites {#local-urls}
+- The folded structure is geometrically compatible with the ACE2 binding site
 
-When hosting a *project site* on GitHub Pages (for example, `https://USERNAME.github.io/MyProject`), URLs that begin with `/` and refer to local files may not work correctly due to how the root URL (`/`) is interpreted by GitHub Pages. You can read more about it [in the FAQ](https://beautifuljekyll.com/faq/#links-in-project-page). To demonstrate the issue, the following local image will be broken **if your site is a project site:**
+- The binding mode is reproducible and structurally plausible
 
-![Crepe](/assets/img/crepe.jpg)
+Taken together, these steps form a coherent in silico validation chain: design → sequence → folding → docking.
 
-If the above image is broken, then you'll need to follow the instructions [in the FAQ](https://beautifuljekyll.com/faq/#links-in-project-page). Here is proof that it can be fixed:
+## Final thoughts
 
-![Crepe]({{ '/assets/img/crepe.jpg' | relative_url }})
+This project was intentionally scoped as an end-to-end, open-source, computational exploration of de novo mini-protein binder design. Starting from nothing more than a target structure and literature-derived hotspots, the pipeline produced entirely novel proteins that:
 
-<details markdown="1">
-<summary>Click here!</summary>
-Here you can see an **expandable** section
-</details>
+- adopt compact, stable folds,
+
+- resemble known binding motifs without copying them, and
+
+- consistently dock to the intended functional interface.
+
+There is plenty of room for improvement: from tighter interface optimization and explicit affinity design, to experimental expression and validation, and that’s exactly what makes this space exciting.
+
+If you have suggestions, critiques, or ideas for how this pipeline could be improved or extended, I’d genuinely love to hear them. And if you found this walkthrough interesting or useful, feel free to share the post on LinkedIn; conversations and feedback are what push these projects forward.
+
+Thank you.
+Emanuele
