@@ -158,41 +158,57 @@ Comparing predicted folds to the designed backbone
 
 To evaluate the results, I aligned each Boltz2-predicted structure to its original RFdiffusion backbone and visually inspected the overlap. This allowed me to distinguish between two very different outcomes:
 
-Good folding predictions, where the mini-protein adopts a structure that closely matches the designed backbone and sits in the expected position relative to the RBD.
+- Good folding predictions, where the mini-protein adopts a structure that closely matches the designed backbone and sits in the expected position relative to the RBD.
 
-Bad folding predictions, where the protein is still folded but is dramatically mispositioned, often rotated or shifted away from the intended binding interface.
+- Bad folding predictions, where the protein is still folded but is dramatically mispositioned, often rotated or shifted away from the intended binding interface.
 
 Rather than exhaustively showing all 48 Boltz2 outputs (12 sequences × 4 models), I selected two representative examples to illustrate the contrast.
 
-A “good” alignment
+### A “good” alignment
 
 In the first example, the predicted structure overlays cleanly with the original backbone:
 
-The two helices are preserved.
+- The two helices are preserved.
 
-The overall geometry matches the design.
+- The overall geometry matches the design.
 
-The RMSD is below 0.9 Å, with only minor local displacements.
+- The RMSD is below 0.9 Å, with only minor local displacements.
+
+<iframe
+  src="{{ '/assets/viewers/aligned_structures.html' | relative_url }}"
+  width="100%"
+  height="650"
+  style="border:0; border-radius:12px;"
+  loading="lazy"
+  allowfullscreen
+></iframe>
 
 These small deviations are entirely expected and even reassuring: they reflect the natural flexibility of helices and side-chain packing differences, rather than a failure of the design. Qualitatively, this is exactly what you hope to see when validating a de novo mini-protein: the sequence folds back into the intended scaffold.
 
-A “bad” alignment
+### A “bad” alignment
 
 In the second example, the contrast is stark. Although the protein still forms secondary structure, the binder is dramatically rotated relative to the expected position. When aligned to the same reference:
 
-The backbone no longer overlaps with the designed scaffold.
+- The backbone no longer overlaps with the designed scaffold.
 
-The helices are displaced away from the ACE2-like interface.
+- The helices are displaced away from the ACE2-like interface.
 
-The binder is clearly incompatible with productive binding to the RBD.
+- The binder is clearly incompatible with productive binding to the RBD.
+- 
+<iframe
+  src="{{ '/assets/viewers/aligned_structures_bad.html' | relative_url }}"
+  width="100%"
+  height="650"
+  style="border:0; border-radius:12px;"
+  loading="lazy"
+  allowfullscreen
+></iframe>
 
 This kind of failure mode is important to highlight. It shows that a predicted fold can look “reasonable” in isolation, yet still be completely wrong in the context of a binding task.
 
 Why this comparison matters
 
-These two figures are not meant to be statistically representative or exhaustive. Instead, they serve a simpler purpose:
-
-To visually define what success and failure look like in this pipeline.
+These two figures are not meant to be statistically representative or exhaustive. Instead, they serve a simpler purpose: to visually define what success and failure look like in this pipeline.
 
 A low RMSD, clean overlap, and correct orientation relative to the target are strong indicators that the sequence–structure pair is viable. Large rotations or displacements, even if the protein appears folded, are a red flag for downstream binding and docking steps.
 
