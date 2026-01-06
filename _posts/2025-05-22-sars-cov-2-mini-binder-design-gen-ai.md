@@ -53,7 +53,7 @@ From this study, I selected six ACE2 hotspot residues that contribute strongly t
 
 These residues sit at the heart of the ACE2–RBD interface, forming a dense network of hydrogen bonds and van der Waals contacts with the spike protein. In RFdiffusion, I treated them as target-side hotspots: positions on the RBD surface where the model is encouraged to place complementary binder residues.
 
-![ACE2 Spike protein RBD interface](https://emalude.github.io/assets/img/Figure1.jpg)
+![ACE2 Spike protein RBD interface](https://emalude.github.io/assets/img/Figure1.png)
 *Figure 1: ACE2 receptor - Spike Protein RBD interaction interface with highlighted hotspots selected for RFDiffusion design.*
 
 ### RFdiffusion setup
@@ -84,7 +84,7 @@ The 10 trajectories naturally fell into two qualitative categories:
 
 In three runs (design 1, 4, and 7), RFdiffusion generated short, compact backbones made of two α-helices arranged against the RBD surface. These helices qualitatively resemble the ACE2 helical segment that engages the spike protein, but are not copies—they’re de novo scaffolds that happen to occupy a similar part of structural space. Importantly, in these designs the helices sit directly over the ACE2–RBD interface, making close approach to the hotspot residues defined above.
 
-![Single chain design](https://emalude.github.io/assets/img/Figure2.jpg)
+![Single chain design](https://emalude.github.io/assets/img/Figure2.png)
 *Figure 2: Several designs were a single relatively long alpha helix. Most of the protein sticking out into solvent, not interacting with the spike protein*
 
 
