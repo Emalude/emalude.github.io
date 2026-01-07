@@ -187,7 +187,7 @@ The aligned structures can be explored in the 3D image below:
 
 These small deviations are entirely expected and even reassuring: they reflect the natural flexibility of helices and side-chain packing differences, rather than a failure of the design. Qualitatively, this is exactly what you hope to see when validating a de novo mini-protein: the sequence folds back into the intended scaffold.
 
-### A “bad” alignment
+### A “bad” alignment
 
 In the second example, the contrast is stark. Although the protein still forms secondary structure, the binder is dramatically rotated relative to the expected position. When aligned to the same reference:
 
@@ -220,11 +220,11 @@ This step turned out to be a critical filter in the pipeline: before worrying ab
 
 In the next section, I’ll build on this validation step and show how these filtered designs were taken forward for docking and interface assessment against the SARS-CoV-2 spike RBD.
 
-## 4. Docking to the SARS-CoV-2 RBD: validating binding geometry
+## 4. Docking to the SARS-CoV-2 RBD: validating binding geometry
 
 After validating that the designed sequences could reliably fold back into their intended two-helix backbones using Boltz2, the final step was protein–protein docking. This ordering is intentional and important.
 
-### Why docking after folding validation
+### Why docking after folding validation
 
 Docking only makes sense once you’ve established that:
 
@@ -236,7 +236,7 @@ Without this step, docking scores and poses can be misleading: a poorly folded o
 
 In other words, the question at this stage is no longer “can this sequence fold?”, but rather: “Given that it folds correctly, does it bind the right place in the right way?”
 
-### Docking setup and rationale
+### Docking setup and rationale
 
 I used LightDock, treating the spike RBD as the receptor and the designed mini-protein as the ligand. Docking was performed under the following guiding principles:
 
@@ -263,7 +263,7 @@ Crucially, there was no evidence of alternative binding sites dominating the top
 
 This kind of convergence is far more meaningful than any single score. It suggests that the designed binder is not just compatible with the ACE2 interface in one lucky pose, but that multiple independent docking searches recover the same binding geometry.
 
-### What docking does (and does not) prove
+### What docking does (and does not) prove
 
 It’s important to be clear about the scope of these results.
 
@@ -285,7 +285,7 @@ What it does show is that:
 
 Taken together, these steps form a coherent in silico validation chain: design → sequence → folding → docking.
 
-## Final thoughts
+## Final thoughts
 
 This project was intentionally scoped as an end-to-end, open-source, computational exploration of de novo mini-protein binder design. Starting from nothing more than a target structure and literature-derived hotspots, the pipeline produced entirely novel proteins that:
 
