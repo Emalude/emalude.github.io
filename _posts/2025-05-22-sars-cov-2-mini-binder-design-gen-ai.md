@@ -4,6 +4,7 @@ title: Designing a Mini-Protein Binder Against SARS-CoV-2 RBD with Generative AI
 subtitle: Using RFDiffusion and proteinMPNN
 gh-repo: emalude/sars-cov2-binder-design
 gh-badge: [star, fork, follow]
+cover-img: 
 tags: [Project, GenAI]
 comments: true
 mathjax: true
@@ -210,7 +211,7 @@ Again, the structures can be explored in the 3D image below:
 
 This kind of failure mode is important to highlight. It shows that a predicted fold can look “reasonable” in isolation, yet still be completely wrong in the context of a binding task.
 
-Why this comparison matters
+### Why this comparison matters
 
 These two figures are not meant to be statistically representative or exhaustive. Instead, they serve a simpler purpose: to visually define what success and failure look like in this pipeline.
 
