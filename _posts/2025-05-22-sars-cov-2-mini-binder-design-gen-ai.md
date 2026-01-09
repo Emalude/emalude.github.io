@@ -36,7 +36,7 @@ The first step in the pipeline was to generate candidate binder backbones that a
 
 ### Defining the design problem
 
-I started from a high-resolution structure of the SARS-CoV-2 RBD bound to human ACE2, focusing specifically on the region of ACE2 that contacts the viral RBD. To bias the designs toward biologically meaningful interactions, I relied on the hotspot analysis from Veeramachaneni et al. (“Structural and simulation analysis of hotspot residues interactions of SARS-CoV-2 with human ACE2 receptor”).
+I started from a high-resolution structure of the SARS-CoV-2 RBD bound to human ACE2, focusing specifically on the region of ACE2 that contacts the viral RBD. To bias the designs toward biologically meaningful interactions, I relied on the hotspot analysis from [Veeramachaneni et al.](https://pubmed.ncbi.nlm.nih.gov/32448098/) (“Structural and simulation analysis of hotspot residues interactions of SARS-CoV-2 with human ACE2 receptor”).
 
 From this study, I selected six ACE2 hotspot residues that contribute strongly to RBD binding:
 
