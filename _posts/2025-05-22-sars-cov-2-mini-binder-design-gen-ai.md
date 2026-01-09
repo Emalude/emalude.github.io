@@ -34,7 +34,7 @@ In the rest of this post, I’ll walk you through each step in the pipeline, sha
 
 The first step in the pipeline was to generate candidate binder backbones that are geometrically compatible with the SARS-CoV-2 spike RBD, and in particular with the ACE2 binding site. For this, I used RFdiffusion, a diffusion-based generative model for protein structures that can build new backbones in the context of a fixed target protein and optional interface constraints (“hotspots”).
 
-Defining the design problem
+### Defining the design problem
 
 I started from a high-resolution structure of the SARS-CoV-2 RBD bound to human ACE2, focusing specifically on the region of ACE2 that contacts the viral RBD. To bias the designs toward biologically meaningful interactions, I relied on the hotspot analysis from Veeramachaneni et al. (“Structural and simulation analysis of hotspot residues interactions of SARS-CoV-2 with human ACE2 receptor”).
 
@@ -83,7 +83,7 @@ The 10 trajectories naturally fell into two qualitative categories:
 
 **Compact two-helix designs at the interface**
 
-In three runs (design 1, 4, and 7), RFdiffusion generated short, compact backbones made of two α-helices arranged against the RBD surface. These helices qualitatively resemble the ACE2 helical segment that engages the spike protein, but are not copies—they’re de novo scaffolds that happen to occupy a similar part of structural space. Importantly, in these designs the helices sit directly over the ACE2–RBD interface, making close approach to the hotspot residues defined above.
+In three runs (design 1, 4, and 7), RFdiffusion generated short, compact backbones made of two α-helices arranged against the RBD surface. These helices qualitatively resemble the ACE2 helical segment that engages the spike protein, but are not copies; they’re de novo scaffolds that happen to occupy a similar part of structural space. Importantly, in these designs the helices sit directly over the ACE2–RBD interface, making close approach to the hotspot residues defined above.
 
 ![Single chain design]({{ '/assets/img/Figure2.png' | relative_url }})
 *Figure 2: Several designs were a single relatively long alpha helix. Most of the protein sticking out into solvent, not interacting with the spike protein*
