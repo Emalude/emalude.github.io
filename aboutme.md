@@ -16,7 +16,7 @@ So I decided to study Physics for my Bachelor’s, with the plan of jumping into
 
 This tension between a love for deep theoretical concepts and a desire to build something tangible led to my first quarter-life crisis. During that period, I explored different paths: I launched various blogs, led a team that won an online marketing contest with the best idea for an e-commerce shop, and another team that placed third by public vote for the overall best startup idea at a contest in Sicily.
 
-Eventually, though, the call of Science proved too strong — even if I was still pretty confused at the time. Ironically, the thing that saved my mind from spiralling into chaos was… chaos itself.
+Eventually, though, the call of Science proved too strong, even if I was still pretty confused at the time. Ironically, the thing that saved my mind from spiralling into chaos was… chaos itself.
 
 Between my Bachelor’s and my Master’s, I discovered Complex Systems and Chaos Theory. It was love at first sight. What fascinated me most was how a single mathematical formalism could describe phenomena across completely different fields. I wrote my BSc thesis on complexity in financial markets and, from there, found my way back to Biology through what is arguably the most complex object in the known universe: the human brain.
 
